@@ -58,3 +58,8 @@ typings/
 .env
 
 .idea/
+
+dist/
+
+/**/*.js
+/**/*.js.map

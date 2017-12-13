@@ -2,8 +2,10 @@
   "name": "open-cv-webrtc",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
+    "start": "npm run build && node ./src/backend/dist/bundle.js",
+    "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,6 +29,7 @@
     "opencv4nodejs": "^2.26.1"
   },
   "devDependencies": {
+    "ts-loader": "^3.2.0",
     "typescript": "^2.6.2",
     "webpack": "^3.10.0"
   }
