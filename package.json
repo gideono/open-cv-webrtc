@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "start": "npm run build && node ./src/backend/dist/bundle.js",
+    "start": "node ./src/backend/dist/bundle.js",
     "build": "webpack",
-    "test": "tsc && mocha --recursive ./src/**/*.spec.js"
+    "test": " mocha --recursive ./src/**/*.spec.js",
+    "d": "dts-gen -m opencv4nodejs"
   },
   "repository": {
     "type": "git",

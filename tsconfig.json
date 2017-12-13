@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "allowJs": true,
     "module": "commonjs",
     "strict": true,
     "noImplicitReturns": true,
@@ -9,5 +10,6 @@
     "sourceMap": true,
     "moduleResolution": "node"
   },
-  "exclude": [ "./node_modules" ]
+  "exclude": [ "./node_modules", "./typings" ]
+
 }
