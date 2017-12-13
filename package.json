@@ -2,12 +2,12 @@
   "name": "open-cv-webrtc",
   "version": "1.0.0",
   "description": "",
-  "main": "index.ts",
+  "main": "index.js",
   "scripts": {
     "start": "node ./src/backend/dist/bundle.js",
     "build": "webpack",
     "test": " mocha --recursive ./src/**/*.spec.js",
-    "d": "dts-gen -m opencv4nodejs"
+    "t": "tsc"
   },
   "repository": {
     "type": "git",
@@ -15,7 +15,6 @@
   },
   "keywords": [
     "react",
-    "typscript",
     "webrtc",
     "opencv",
     "websocket"
@@ -30,14 +29,8 @@
     "opencv4nodejs": "^2.26.1"
   },
   "devDependencies": {
-    "@types/assert": "0.0.31",
-    "@types/mocha": "^2.2.44",
-    "@types/node": "^8.0.58",
     "clean-webpack-plugin": "^0.1.17",
     "mocha": "^4.0.1",
-    "ts-loader": "^3.2.0",
-    "tslint": "^5.8.0",
-    "typescript": "^2.6.2",
     "webpack": "^3.10.0"
   }
 }

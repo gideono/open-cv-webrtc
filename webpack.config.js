@@ -6,11 +6,11 @@ const path = require('path')
     , OUTPUT = Object.assign({path: DIST, filename: 'bundle.[hash].js'});
 
 function resolve() {
-    return { extensions: [".ts", ".tsx", ".js"]  }
+    return { extensions: [ ".jsx", ".js" ]  }
 }
 
 function rules() {
-    return [ { test: /\.tsx?$/, loader: 'ts-loader', exclude: /node_modules/ } ];
+    return [ ];
 }
 
 function plugins() {
