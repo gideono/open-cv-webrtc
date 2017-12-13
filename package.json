@@ -22,5 +22,12 @@
   "bugs": {
     "url": "https://github.com/gideono/open-cv-webrtc/issues"
   },
-  "homepage": "https://github.com/gideono/open-cv-webrtc#readme"
+  "homepage": "https://github.com/gideono/open-cv-webrtc#readme",
+  "dependencies": {
+    "opencv4nodejs": "^2.26.1"
+  },
+  "devDependencies": {
+    "typescript": "^2.6.2",
+    "webpack": "^3.10.0"
+  }
 }
