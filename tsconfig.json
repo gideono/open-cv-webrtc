@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "es6",
+    "module": "commonjs",
     "strict": true,
     "noImplicitReturns": true,
     "removeComments": true,
@@ -9,8 +9,5 @@
     "sourceMap": true,
     "moduleResolution": "node"
   },
-  "exclude": [
-    "node_modules",
-    "target"
-  ]
+  "exclude": [ "./node_modules" ]
 }

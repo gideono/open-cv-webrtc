@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run build && node ./src/backend/dist/bundle.js",
     "build": "webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tsc && mocha --recursive ./src/**/*.spec.js"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,10 @@
     "opencv4nodejs": "^2.26.1"
   },
   "devDependencies": {
+    "@types/assert": "0.0.31",
+    "@types/mocha": "^2.2.44",
+    "@types/node": "^8.0.58",
+    "mocha": "^4.0.1",
     "ts-loader": "^3.2.0",
     "typescript": "^2.6.2",
     "webpack": "^3.10.0"

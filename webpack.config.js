@@ -4,9 +4,7 @@ const path = require('path')
     , DIST = Object.assign({path: path.join(SRC, './backend/dist'), filename: 'bundle.js'});
 
 function resolve() {
-    return {
-        extensions: [".ts", ".tsx", ".js", ".jsx"]
-    }
+    return { extensions: [".ts", ".tsx", ".js", ".jsx"]  }
 }
 
 module.exports = {
