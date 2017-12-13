@@ -1,0 +1,26 @@
+{
+  "name": "open-cv-webrtc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gideono/open-cv-webrtc.git"
+  },
+  "keywords": [
+    "react",
+    "typscript",
+    "webrtc",
+    "opencv",
+    "websocket"
+  ],
+  "author": "Gideon Oduro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gideono/open-cv-webrtc/issues"
+  },
+  "homepage": "https://github.com/gideono/open-cv-webrtc#readme"
+}
