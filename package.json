@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./src/backend/service/detection/detection.js --exec babel-node --presets es2015",
+    "start": "nodemon ./src/backend/service/detection/detection.js --exec babel-node --presets=es2015,stage-3",
     "build": "webpack",
     "test": " mocha --recursive ./src/**/*.spec.js",
     "n": "node src/backend/service/detection/detection.js"
@@ -32,6 +32,7 @@
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1",
     "clean-webpack-plugin": "^0.1.17",
     "mocha": "^4.0.1",
     "nodemon": "^1.12.6",
