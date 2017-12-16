@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./src/backend/service/detection/detection.js --exec babel-node --presets=es2015,stage-3",
+    "start": "nodemon ./src/backend/server.js --exec babel-node --presets=es2015,stage-3",
+    "wc-test": "nodemon ./src/backend/webCamera.js --exec babel-node --presets=es2015,stage-3",
     "build": "webpack",
     "test": " mocha --recursive ./src/**/*.spec.js",
     "n": "node src/backend/service/detection/detection.js"
