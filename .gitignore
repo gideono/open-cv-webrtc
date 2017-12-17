@@ -63,3 +63,7 @@ dist/
 
 /**/*.js
 /**/*.js.map
+
+*.key
+*.crt
+*.pem

@@ -5,9 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon ./src/backend/server.js --exec babel-node --presets=es2015,stage-3",
+    "server": "node ./src/backend/dist/server.js ",
     "wc-test": "nodemon ./src/backend/webCamera.js --exec babel-node --presets=es2015,stage-3",
-    "test": " mocha --compilers js:babel-register --recursive ./src/**/*.spec.js",
-    "build": "webpack"
+    "build-server": "babel ./src/backend -d ./src/backend/dist --presets es2015,stage-3",
+    "build": "webpack",
+    "test": " mocha --compilers js:babel-register --recursive ./src/**/*.spec.js"
   },
   "repository": {
     "type": "git",
