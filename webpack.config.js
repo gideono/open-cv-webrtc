@@ -1,20 +1,23 @@
 const path = require('path')
     , CleanWebpackPlugin = require('clean-webpack-plugin')
     , SRC = path.join(__dirname, './src')
-    , ENTRY = path.join(SRC, './backend/index.ts') // TODO frontend should be bundled
-    , DIST = path.join(SRC, './backend/dist') // TODO frontend should be bundled
-    , OUTPUT = Object.assign({path: DIST, filename: 'bundle.[hash].js'});
+    , ENTRY = path.join(SRC, './frontend/index.js')
+    , STATIC = path.join(SRC, './backend/dist/static')
+    , OUTPUT = Object.assign({path: STATIC, filename: 'bundle.[hash].js'});
 
 function resolve() {
     return { extensions: [ ".jsx", ".js" ]  }
 }
 
 function rules() {
-    return [ ];
+    return [
+        { test: /\.js$/, loader: 'babel-loader', include: SRC},
+        { test: /\.jsx$/, loader: 'babel-loader', include: SRC}
+    ];
 }
 
 function plugins() {
-    return [ new CleanWebpackPlugin([DIST]) ];
+    return [ new CleanWebpackPlugin([STATIC]) ];
 }
 
 module.exports = {
