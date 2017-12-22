@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./src/backend/server.js --exec babel-node --presets=es2015,stage-3",
-    "server": "node ./src/backend/dist/server.js ",
+    "start": "npm run build && node ./src/backend/dist/server.js ",
+    "build": "rm -rf ./src/backend/dist && babel ./src/backend --out-dir ./src/backend/dist --ignore=test,resources --copy-files --presets es2015,stage-3",
+    "dev": "nodemon ./src/backend/server.js --exec babel-node --presets=es2015,stage-3",
     "wc-test": "nodemon ./src/backend/webCamera.js --exec babel-node --presets=es2015,stage-3",
-    "build-server": "babel ./src/backend -d ./src/backend/dist --presets es2015,stage-3",
-    "build": "webpack",
-    "test": " mocha --compilers js:babel-register --recursive ./src/**/*.spec.js"
+    "test": " mocha --compilers js:babel-register --recursive ./src/**/*.spec.js",
+    "w": "webpack"
   },
   "repository": {
     "type": "git",
@@ -28,7 +28,9 @@
   },
   "homepage": "https://github.com/gideono/open-cv-webrtc#readme",
   "dependencies": {
-    "opencv4nodejs": "^2.26.1"
+    "express": "^4.16.2",
+    "opencv4nodejs": "^2.26.1",
+    "ws": "^3.3.3"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
