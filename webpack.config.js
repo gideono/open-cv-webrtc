@@ -1,4 +1,5 @@
 const path = require('path')
+    , webpack = require('webpack')
     , CleanWebpackPlugin = require('clean-webpack-plugin')
     , HtmlWebpackPlugin = require('html-webpack-plugin')
     , SRC = path.join(__dirname, './src')
@@ -20,8 +21,21 @@ function rules() {
 function plugins() {
     return [
         new CleanWebpackPlugin([STATIC]),
-        new HtmlWebpackPlugin()
+        new HtmlWebpackPlugin(),
+        new webpack.NamedModulesPlugin(),
+        new webpack.HotModuleReplacementPlugin()
     ];
+}
+
+function devServer() {
+    return {
+        port: 8080,
+        historyApiFallback: true,
+        hot: true,
+        contentBase: STATIC,
+        inline: true,
+        progress: true
+    }
 }
 
 module.exports = {
@@ -31,4 +45,5 @@ module.exports = {
     , resolve: resolve()
     , module: { rules: rules() }
     , plugins: plugins()
+    , devServer: devServer()
 };
