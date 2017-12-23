@@ -7,7 +7,7 @@ const app = express()
     , server = http.Server(app)
     , socket = new SocketIO(server);
 
-app.use(express.static(path.join(__dirname, '../frontend')));
+app.use(express.static(path.join(__dirname, './dist/static')));
 
 
 server.listen(8080, () => console.log(`PORT: ${server.address().port}`));

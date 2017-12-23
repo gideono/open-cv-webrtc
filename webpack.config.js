@@ -1,5 +1,6 @@
 const path = require('path')
     , CleanWebpackPlugin = require('clean-webpack-plugin')
+    , HtmlWebpackPlugin = require('html-webpack-plugin')
     , SRC = path.join(__dirname, './src')
     , ENTRY = path.join(SRC, './frontend/index.js')
     , STATIC = path.join(SRC, './backend/dist/static')
@@ -17,7 +18,10 @@ function rules() {
 }
 
 function plugins() {
-    return [ new CleanWebpackPlugin([STATIC]) ];
+    return [
+        new CleanWebpackPlugin([STATIC]),
+        new HtmlWebpackPlugin()
+    ];
 }
 
 module.exports = {
