@@ -29,12 +29,13 @@ function plugins() {
 
 function devServer() {
     return {
-        port: 8080,
-        historyApiFallback: true,
-        hot: true,
-        contentBase: STATIC,
-        inline: true,
-        progress: true
+        port: 3000
+        , historyApiFallback: true
+        , hot: true
+        , contentBase: STATIC
+        , inline: true
+        , progress: true
+        , open: true
     }
 }
 
