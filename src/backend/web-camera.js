@@ -1,4 +1,4 @@
-import {imshow, VideoCapture, waitKey} from "opencv4nodejs"
+import {imshow, VideoCapture, waitKey, Point, Vec} from "opencv4nodejs"
 import {detect} from "./service/detection/detection";
 
 const WEB_CAMERA_DEVICE_PORT = 0;
@@ -11,9 +11,19 @@ export function show() {
     while(true) {
         const frame = capture().read();
         const {objects} = detect()(frame);
-        console.log(objects.length);
+        objects.map((rect) => {
+            const color = new Vec(255, 0, 0);
+            let thickness = 2;
+
+            frame.drawRectangle(
+                new Point(rect.x, rect.y),
+                new Point(rect.x + rect.width, rect.y + rect.height),
+                color,
+                { thickness }
+            );
+        });
         imshow('frame', frame);
-        waitKey(100);
+        waitKey(10);
     }
 }
 
