@@ -1,5 +1,5 @@
 import {imshow, VideoCapture, waitKey, Point, Vec} from "opencv4nodejs"
-import {detect, draw} from "./service/detection/detection";
+import {detect, draw} from "./service/detection";
 
 const WEB_CAMERA_DEVICE_PORT = 0;
 

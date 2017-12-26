@@ -1,4 +1,4 @@
-import {Point, Vec} from 'opencv4nodejs';
+import cv, {Point, Vec} from 'opencv4nodejs';
 
 export function detect(haar = cv.HAAR_FRONTALFACE_ALT2) {
     const classifier = new cv.CascadeClassifier(haar);

@@ -8,7 +8,10 @@ setTimeout(() => {
         video.srcObject = stream;
         setInterval(() => {
             canvas.getContext('2d', {}).drawImage(video, 0, 0, 640, 480);
+
+            //OBS! needs to be in jpeg
             canvas.toBlob((blob) => console.log(blob));
+            canvas.toDataURL('image/png', 1); // base64encoded
         }, 100)
     });
 
