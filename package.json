@@ -32,7 +32,6 @@
     "opencv4nodejs": "^2.26.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "socket.io": "^2.0.4",
     "webrtc-adapter": "^6.0.3"
   },
   "devDependencies": {
