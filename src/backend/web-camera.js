@@ -1,5 +1,5 @@
 import {imshow, VideoCapture, waitKey, Point, Vec} from "opencv4nodejs"
-import {detect} from "./service/detection/detection";
+import {detect, draw} from "./service/detection/detection";
 
 const WEB_CAMERA_DEVICE_PORT = 0;
 
@@ -7,21 +7,11 @@ export function capture() {
     return new VideoCapture(WEB_CAMERA_DEVICE_PORT);
 }
 
-export function show() {
+export function show() { //TODO rethink detection api
     while(true) {
-        const frame = capture().read();
+        let frame = capture().read();
         const {objects} = detect()(frame);
-        objects.map((rect) => {
-            const color = new Vec(255, 0, 0);
-            let thickness = 2;
-
-            frame.drawRectangle(
-                new Point(rect.x, rect.y),
-                new Point(rect.x + rect.width, rect.y + rect.height),
-                color,
-                { thickness }
-            );
-        });
+        frame = draw(objects, frame);
         imshow('frame', frame);
         waitKey(10);
     }
