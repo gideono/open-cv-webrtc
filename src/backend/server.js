@@ -36,6 +36,7 @@ const app = express()
 app.use(express.static(path.join(__dirname, './dist/static')));
 
 io.on('connection', (socket) => {
+    socket.on('message', (msg) => console.log(msg))
 
     // todo socket.on('capture', blob => perform detection and respond to client)
 
