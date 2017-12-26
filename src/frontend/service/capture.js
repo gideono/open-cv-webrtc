@@ -1,9 +1,11 @@
 import device from '../utility/media-device'
+
 const url = `ws://localhost:8080/`;
 const io = new WebSocket(url);
 io.onopen = () => console.log(`established connection to: ${url}`);
-//TODO find a why to close gracefully
 io.onmessage = (msg) => console.log(msg);
+io.onclose = (e) => console.log(e);
+io.onerror = (err) => console.log(err);
 
 const constraint = {video: {mandatory: {minWidth: 640, minHeight: 480}}};
 setTimeout(() => {
