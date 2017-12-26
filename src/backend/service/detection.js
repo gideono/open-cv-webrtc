@@ -1,4 +1,11 @@
-import cv, {Point, Vec} from 'opencv4nodejs';
+import cv, {Point, Vec, imdecode} from 'opencv4nodejs';
+
+
+export function identify(buf) {
+    const img = imdecode(buf);
+    const { objects } = detect()(img);
+    console.log(objects.length)
+}
 
 export function detect(haar = cv.HAAR_FRONTALFACE_ALT2) {
     const classifier = new cv.CascadeClassifier(haar);
