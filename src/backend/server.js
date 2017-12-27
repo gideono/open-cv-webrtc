@@ -39,7 +39,7 @@ io.on('connection', (session, req) => {
     const { connection: { remoteAddress } } = req
         , ip = remoteAddress === '::1' ? '0.0.0.0' : remoteAddress;
     console.log(`connection established from: ${ip}`);
-    session.on('message', identify);
+    session.on('message', (blob) => session.send(identify(blob)));
     session.on('close', () => console.log(`${ip} has disconnected`));
     //TODO find a why to close gracefully
     session.on('error', (e) => console.log(`caused by, ${ip}`, e));

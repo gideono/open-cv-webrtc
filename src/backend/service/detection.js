@@ -1,10 +1,14 @@
-import cv, {Point, Vec, imdecode} from 'opencv4nodejs';
+import cv, {Point, Vec, imdecode, imencode} from 'opencv4nodejs';
+import fs from 'fs'
 
+
+const saveToDisk = (img) => fs.writeFile('g.jpg', img, (err) => console.log(err));
 
 export function identify(buf) {
-    const img = imdecode(buf);
+    let img = imdecode(buf);
     const { objects } = detect()(img);
-    console.log(objects.length)
+    console.log(objects.length);
+    return imencode('.jpg', draw(objects, img));
 }
 
 export function detect(haar = cv.HAAR_FRONTALFACE_ALT2) {
@@ -16,7 +20,7 @@ export function detect(haar = cv.HAAR_FRONTALFACE_ALT2) {
 }
 
 export function draw(identified, img) {
-    identified.map((rect) => {
+    (identified !== 0) && identified.map((rect) => {
         const color = new Vec(255, 0, 0);
         let thickness = 2;
 
