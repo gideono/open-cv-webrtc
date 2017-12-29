@@ -1,13 +1,7 @@
 import device from '../utility/media-device'
+import constraint from '../utility/rtc-constraint'
+import io from '../communication/socket-client'
 
-const url = `ws://localhost:8080/`;
-const io = new WebSocket(url);
-io.onopen = () => console.log(`established connection to: ${url}`);
-io.onmessage = ({data}) => document.querySelector('img').src = URL.createObjectURL(data);
-io.onclose = (e) => console.log(e);
-io.onerror = (err) => console.log(err);
-
-const constraint = {video: {mandatory: {minWidth: 640, minHeight: 480}}};
 setTimeout(() => {
     const video = document.querySelector('video');
     const canvas = document.querySelector('canvas');
@@ -16,9 +10,7 @@ setTimeout(() => {
         video.srcObject = stream;
         setInterval(() => {
             canvas.getContext('2d', {}).drawImage(video, 0, 0, 640, 480);
-
-            //OBS! needs to be in jpeg
-            canvas.toBlob((blob) => io.send(blob));
+            canvas.toBlob((blob) => io.send(blob), 'image/jpg', 1);
         }, 115)
     });
 }, 100);
