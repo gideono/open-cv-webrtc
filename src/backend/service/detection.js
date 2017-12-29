@@ -1,35 +1,26 @@
 import cv, {Point, Vec, imdecode, imencode} from 'opencv4nodejs';
 import fs from 'fs'
 
+let count = 0;
+const saveToDisk = (img) => fs.writeFile(`g${count = count + 1}.jpg`, img, 'binary', (err) => err && console.log(err));
 
-const saveToDisk = (img) => fs.writeFile('g.jpg', img, (err) => console.log(err));
+export const identify = (buf, classification = cv.HAAR_FRONTALFACE_ALT2) =>
+    imencode('.jpg', image(imdecode(buf), classification));
 
-export function identify(buf) {
-    let img = imdecode(buf);
-    const { objects } = detect()(img);
-    console.log(objects.length);
-    return imencode('.jpg', draw(objects, img));
-}
+const image = (img, classification) => draw(detect(classification)(img), img);
 
-export function detect(haar = cv.HAAR_FRONTALFACE_ALT2) {
-    const classifier = new cv.CascadeClassifier(haar);
-    return function (img) {
-        const grayImg = img.bgrToGray();
-        return classifier.detectMultiScale(grayImg);
-    }
-}
+export const detect = (classification = cv.HAAR_FRONTALFACE_ALT2) =>
+    (img) => new cv.CascadeClassifier(classification).detectMultiScale(img.bgrToGray());
 
-export function draw(identified, img) {
+export const draw = ({ objects: identified }, img) => {
     (identified !== 0) && identified.map((rect) => {
         const color = new Vec(255, 0, 0);
-        let thickness = 2;
-
         img.drawRectangle(
             new Point(rect.x, rect.y),
             new Point(rect.x + rect.width, rect.y + rect.height),
             color,
-            { thickness }
+            { thickness: 2 }
         );
     });
     return img;
-}
+};
