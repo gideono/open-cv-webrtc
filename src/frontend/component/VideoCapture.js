@@ -5,21 +5,23 @@ import {SimpleSocket} from '../communication/socket-client'
 import {drawImage} from "../utility/canvas-support";
 
 
-const io = SimpleSocket();
-const send = (_) => drawImage(document.querySelector('#camera-stream'))((data) => io.send(data));
+// const io = SimpleSocket();
+// const send = (_) => drawImage(document.querySelector('#camera-stream'))((data) => io.send(data));
 
 
 
-export const VideoCapture = ({}) =>
-    /**
-     * TODO use ref callback function to access dom element
-     * <video id='camera-stream'
-     *        playsInline width={WIDTH}
-     *        height={HEIGHT}
-     *        ref={(video) => this.state.start = capture.setup(target)}></video> */
-    <div>
-        <video id='camera-stream' playsInline width={WIDTH} height={HEIGHT}></video>
-        <button onClick={() => start(document.querySelector('#camera-stream'), send)}>start</button>
-        <button onClick={() => stop()}>stop</button>
-        {/*<RecordBtn></RecordBtn>*/}
-    </div>;
+export const VideoCapture = ({send}) => {
+    let target;
+    const setTargetElement = (video) => (target = video);
+    return (
+        <div>
+            <video id='camera-stream' playsInline width={WIDTH} height={HEIGHT} ref={(video) => setTargetElement(video)}></video>
+            <button onClick={() => start(target, send)}>start</button>
+            <button onClick={() => stop()}>stop</button>
+            {/*<RecordBtn></RecordBtn>*/}
+        </div>
+    );
+
+};
+
+
