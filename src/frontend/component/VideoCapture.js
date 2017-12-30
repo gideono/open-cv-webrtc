@@ -1,18 +1,13 @@
 import React from 'react'
 import {start, stop} from "../service/capture";
 import {WIDTH, HEIGHT} from "../utility/constants";
-import {SimpleSocket} from '../communication/socket-client'
 import {drawImage} from "../utility/canvas-support";
 
 
-// const io = SimpleSocket();
-// const send = (_) => drawImage(document.querySelector('#camera-stream'))((data) => io.send(data));
-
-
-
-export const VideoCapture = ({send}) => {
+export const VideoCapture = ({transport}) => {
     let target;
     const setTargetElement = (video) => (target = video);
+    const send = (_) => drawImage(target)((data) => transport.send(data));
     return (
         <div>
             <video id='camera-stream' playsInline width={WIDTH} height={HEIGHT} ref={(video) => setTargetElement(video)}></video>
