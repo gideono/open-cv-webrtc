@@ -33,9 +33,9 @@ export class Socket {
     }
 }
 
-export const SimpleSocket = (open = onopen, message = onmessage) => {
+export const SimpleSocket = (message = onmessage) => {
     return new Socket.IO()
-        .setOnOpen(open)
+        .setOnOpen(onopen)
         .setOnMessage(message)
         .setOnClose(onclose)
         .setOnError(onerror)
@@ -49,6 +49,8 @@ const onerror = (err) => console.log(err);
 
 const handleData = (data) => {
     if(data instanceof Blob){
+        // Todo,should take ref node, not dom element
+        // Todo update redux store should propagate changes to blob url and consumed by component
         document.querySelector('img').src = URL.createObjectURL(data);
     }
     if(data instanceof String) {

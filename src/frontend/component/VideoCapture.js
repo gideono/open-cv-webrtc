@@ -10,10 +10,9 @@ export const VideoCapture = ({transport}) => {
     const send = (_) => drawImage(target)((data) => transport.send(data));
     return (
         <div>
-            <video id='camera-stream' playsInline width={WIDTH} height={HEIGHT} ref={(video) => setTargetElement(video)}></video>
+            <video playsInline width={WIDTH} height={HEIGHT} ref={(video) => setTargetElement(video)}></video>
             <button onClick={() => start(target, send)}>start</button>
             <button onClick={() => stop()}>stop</button>
-            {/*<RecordBtn></RecordBtn>*/}
         </div>
     );
 
