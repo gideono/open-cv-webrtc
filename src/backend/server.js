@@ -19,7 +19,6 @@ io.on('connection', (session, req) => {
     session.on('message', (blob) => session.send(identify(blob)));
     session.on('close', () => console.log(`${ip} has disconnected`));
     session.on('error', (e) => console.log(`caused by, ${ip}`, e));
-    session.send('something');
 });
 
 server.listen(8080, () => console.log(`PORT: ${server.address().port}`));
