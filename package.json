@@ -33,6 +33,7 @@
     "opencv4nodejs": "^2.26.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "sanitize.css": "^5.0.0",
     "webrtc-adapter": "^6.0.3"
   },
   "devDependencies": {
@@ -44,9 +45,12 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-3": "^6.24.1",
     "clean-webpack-plugin": "^0.1.17",
+    "css-loader": "^0.28.7",
     "html-webpack-plugin": "^2.30.1",
     "mocha": "^4.0.1",
     "nodemon": "^1.12.6",
+    "postcss-loader": "^2.0.9",
+    "style-loader": "^0.19.1",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.9.7"
   }

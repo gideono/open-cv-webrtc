@@ -14,7 +14,14 @@ function resolve() {
 function rules() {
     return [
         { test: /\.js$/, loader: 'babel-loader', include: SRC},
-        { test: /\.jsx$/, loader: 'babel-loader', include: SRC}
+        { test: /\.jsx$/, loader: 'babel-loader', include: SRC},
+        {
+            test: /\.css$/,
+            use: [
+                { loader: "style-loader" },
+                { loader: "css-loader" }
+            ]
+        }
     ];
 }
 
