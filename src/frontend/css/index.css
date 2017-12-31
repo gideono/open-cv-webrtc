@@ -3,3 +3,5 @@
 @import "color.css";
 
 @import "./template/root.css";
+
+@import "./component/notification.css";

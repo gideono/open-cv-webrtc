@@ -1,4 +1,5 @@
 import React from "react";
+import Notification from "../component/Notification";
 import {SimpleSocket} from "../communication/socket-client";
 import {VideoCapture} from "../component/VideoCapture";
 import {PreviewCapture} from "../component/PreviewCapture";
@@ -6,7 +7,11 @@ import {PreviewCapture} from "../component/PreviewCapture";
 export default () => {
     const io = SimpleSocket();
     return [
-        <VideoCapture transport={io} key="video"></VideoCapture>,
-        <PreviewCapture key="img"></PreviewCapture>
+        <main key="main">
+            <Notification></Notification>
+            <VideoCapture transport={io} ></VideoCapture>,
+            <PreviewCapture></PreviewCapture>
+        </main>,
+        <nav key="navigation"></nav>
     ];
 };
