@@ -1,5 +1,5 @@
 import React from 'react';
-import Notification from './Notification'
+import Notification from './notification'
 
 export const WarningNotification = () =>
     <Notification type='warning-notification' duration={5}>
