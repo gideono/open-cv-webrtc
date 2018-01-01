@@ -1,6 +1,7 @@
 @import "~sanitize.css";
-@import "break-points.css";
-@import "color.css";
+@import "./break-points.css";
+@import "./color.css";
+@import "./animation.css";
 
 @import "./template/root.css";
 

@@ -1,4 +1,5 @@
 import React from 'react'
-export default () => <section id="notification-bar">
-                        <div>hello notification</div>
-                     </section>
+export default ({children, type, duration}) =>
+    <section id="notification-bar" className={`${type}`}>
+     {children}
+    </section>
