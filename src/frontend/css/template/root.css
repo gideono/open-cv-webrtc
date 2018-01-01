@@ -3,9 +3,8 @@ body {
     background-color: var(--navy-blue);
 }
 
-body > div {
+body {
     margin: 0 auto;
-    max-width: 1300px;
 }
 
 h1, h1, h3, h4, h5, h6 {
@@ -13,11 +12,15 @@ h1, h1, h3, h4, h5, h6 {
 }
 
 body div main {
-    margin-top: 4em;
+    margin: 0 auto;
+    max-width: 1300px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 20px;
+}
 
+main div {
+    margin-top: 4em;
 }
 
 img, iframe, object, embed, video {

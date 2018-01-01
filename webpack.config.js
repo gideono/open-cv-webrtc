@@ -19,7 +19,16 @@ function rules() {
             test: /\.css$/,
             use: [
                 { loader: "style-loader" },
-                { loader: "css-loader" }
+                { loader: "css-loader", options: { importLoaders: 1 }  },
+                { loader: "postcss-loader",
+                    options: {
+                        ident: 'postcss',
+                        plugins: (loader) => [
+                            require('postcss-import')({ root: loader.resourcePath }),
+                            require('postcss-cssnext')(),
+                        ]
+                    }
+                }
             ]
         },
         {
@@ -51,7 +60,7 @@ function devServer() {
         , contentBase: STATIC
         , inline: true
         , progress: true
-        , open: true
+        , open: false
     }
 }
 

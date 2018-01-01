@@ -7,8 +7,8 @@ import {WarningNotification} from "../component/warning-notification"
 export default () => {
     const io = SimpleSocket();
     return [
+        <WarningNotification key="notification"></WarningNotification>,
         <main key="main">
-            <WarningNotification></WarningNotification>
             <VideoCapture transport={io} ></VideoCapture>
             <PreviewCapture></PreviewCapture>
         </main>,

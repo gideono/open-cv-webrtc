@@ -1,4 +1,4 @@
-:root { /* TODO @apply --notification-base, not working */
+:root {
     --notification-base: {
         width: 100%;
         height: 5em;
@@ -8,25 +8,16 @@
 
 }
 .warning-notification {
-    width: 100%;
-    height: 5em;
-    position: absolute;
-    top: -5em;
+    @apply --notification-base;
     background-color: var(--red);
 }
 
 .success-notification {
-    width: 100%;
-    height: 5em;
-    position: absolute;
-    top: -5em;
+    @apply --notification-base;
     background-color: var(--green);
 }
 
 .info-notification {
-    width: 100%;
-    height: 5em;
-    position: absolute;
-    top: -5em;
+    @apply --notification-base;
     background-color: var(--blue);
 }
