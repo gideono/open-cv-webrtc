@@ -9,12 +9,10 @@ export const VideoCapture = ({transport}) => {
     const send = (_) => drawImage(target)((data) => transport.send(data));
     return (
         <div>
-            <video playsInline ref={(video) => setTargetElement(video)}></video>
+            <video id="video-capture" poster="https://placeimg.com/640/485/people" playsInline ref={(video) => setTargetElement(video)}></video>
             <button onClick={() => start(target, send)}>start</button>
             <button onClick={() => stop()}>stop</button>
         </div>
     );
 
 };
-
-
