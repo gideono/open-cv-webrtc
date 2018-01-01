@@ -1,4 +1,32 @@
-#notification-bar {
-        background-color: var(--red); /*color should be on content component e.i warning-notification*/
+:root { /* TODO @apply --notification-base, not working */
+    --notification-base: {
+        width: 100%;
+        height: 5em;
+        position: absolute;
+        top: -5em;
+    };
+
+}
+.warning-notification {
+    width: 100%;
     height: 5em;
+    position: absolute;
+    top: -5em;
+    background-color: var(--red);
+}
+
+.success-notification {
+    width: 100%;
+    height: 5em;
+    position: absolute;
+    top: -5em;
+    background-color: var(--green);
+}
+
+.info-notification {
+    width: 100%;
+    height: 5em;
+    position: absolute;
+    top: -5em;
+    background-color: var(--blue);
 }
