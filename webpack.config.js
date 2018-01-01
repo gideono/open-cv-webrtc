@@ -21,6 +21,15 @@ function rules() {
                 { loader: "style-loader" },
                 { loader: "css-loader" }
             ]
+        },
+        {
+            test: /\.(jpg|png|svg)$/,
+            use: {
+                loader: "url-loader",
+                options: {
+                    limit: 25000,
+                },
+            },
         }
     ];
 }

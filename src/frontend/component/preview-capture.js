@@ -1,5 +1,5 @@
 import React from 'react'
-import {HEIGHT, WIDTH} from "../utility/constants";
+import placeholder from '../img/img-placeholder.png'
 
 //Todo src should come from redux
-export const PreviewCapture = () => <div><img width={WIDTH} height={HEIGHT}/></div>;
+export const PreviewCapture = () => <div><img id="preview-capture" src={placeholder}/></div>;

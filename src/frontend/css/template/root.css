@@ -3,7 +3,28 @@ body {
     background-color: var(--navy-blue);
 }
 
+body > div {
+    margin: 0 auto;
+    max-width: 1300px;
+}
+
 h1, h1, h3, h4, h5, h6 {
     margin: 0;
 }
 
+body div main {
+    margin-top: 4em;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 20px;
+
+}
+
+img, iframe, object, embed, video {
+    width: 100%;
+    max-width: 100%;
+}
+
+img, video {
+    border: 10px solid var(--light-grey);
+}
