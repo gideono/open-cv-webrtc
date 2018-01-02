@@ -1,38 +1,24 @@
-
-/*noinspection CssInvalidAtRule*/
-@custom-selector :--button #record-checkbox + label > div > div;
-
-/*noinspection CssInvalidAtRule*/
-@custom-selector :--button-frame #record-checkbox + label > div;
-
 :root {
-    --recorder-btn-square: {
+    --record-btn-square: {
+        display:inline-block;
+        margin: 10px 0 0 10px;
+        vertical-align:middle;
         border-radius: 5%;
         height: 30px;
         width: 30px;
-        margin: 10px 10px;
+
     }
 }
 
-#record-checkbox {
-    /*display:none;*/
+#record-btn {
+    display: none;
 }
 
-/*noinspection CssInvalidPseudoSelector*/
-:--button-frame {
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    border: 5px solid white;
-}
-
-/*noinspection CssInvalidPseudoSelector*/
-:--button {
-    @apply --recorder-btn-square;
+#record-btn + label div span {
+    @apply --record-btn-square;
     background: red;
 
-    /*animation-name: toggle-pause-play;*/
-    animation-duration: 0.5s;
+    animation-duration: 0.3s;
     animation-timing-function: ease;
     animation-delay: 0.0s;
     animation-iteration-count: 1;
@@ -40,21 +26,27 @@
     animation-fill-mode: forwards;
     animation-play-state: running;
 }
-/*noinspection CssInvalidPseudoSelector*/
-#record-checkbox:checked + label > div > div  {
+
+#record-btn:checked + label div span {
     animation-name: toggle-pause-play;
 }
 
+.frame {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    border: 5px solid white;
+}
 
 @keyframes toggle-pause-play {
     0% {
-        @apply --recorder-btn-square;
+        @apply --record-btn-square;
     }
 
     100% {
         border-radius: 50%;
+        margin: 7px 0px 0px 8px;
         height: 35px;
         width: 35px;
-        margin: 7px;
     }
 }
