@@ -1,6 +1,7 @@
 import React from 'react'
 import {start, stop} from "../service/capture";
 import {drawImage} from "../utility/canvas-support";
+import {RecordBtn} from "./record-btn";
 
 
 export const VideoCapture = ({transport}) => {
@@ -8,11 +9,16 @@ export const VideoCapture = ({transport}) => {
     const setTargetElement = (video) => (target = video);
     const send = (_) => drawImage(target)((data) => transport.send(data));
     return (
-        <div>
-            <video id="video-capture" poster="https://placeimg.com/640/485/people" playsInline ref={(video) => setTargetElement(video)}></video>
-            <button onClick={() => start(target, send)}>start</button>
-            <button onClick={() => stop()}>stop</button>
-        </div>
+        [
+            <div key="media">
+                <video id="video-capture" poster="https://placeimg.com/640/485/people" playsInline ref={(video) => setTargetElement(video)}></video>
+            </div>,
+            <div key="media-control">
+                <RecordBtn></RecordBtn>
+                {/*<button onClick={() => start(target, send)}>START</button>*/}
+                {/*<button onClick={() => stop()}>STOP</button>*/}
+            </div>
+        ]
     );
 
 };

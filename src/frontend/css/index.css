@@ -1,10 +1,12 @@
-@import "sanitize.css";
+@import '../../../node_modules/sanitize.css/sanitize.css';
 @import "./break-points.css";
 @import "./color.css";
 @import "./animation.css";
+@import "./effects.css";
 
 @import "./template/root.css";
 
 @import "./component/notification.css";
 @import "./component/preview-capture.css";
 @import "./component/video-capture.css";
+@import "./component/record-btn.css";

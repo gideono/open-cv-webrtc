@@ -1,3 +1,11 @@
+:root {
+    --media-border: {
+        border: 10px solid var(--light-grey);
+        border-radius: 2px;
+        box-shadow: var(--subtle-shadow);;
+    }
+}
+
 body {
     font-family: "San Francisco", Helvetica, Arial, sans-serif;
     font-size: 16px;
@@ -20,15 +28,15 @@ body div main {
     grid-column-gap: 20px;
 }
 
-main div {
+main > div {
     margin-top: 4em;
 }
 
 img, iframe, object, embed, video {
     width: 100%;
     max-width: 100%;
+    height: 95%;
 }
 
-img, video {
-    border: 10px solid var(--light-grey);
-}
+input, button, submit { border:none; }
+
