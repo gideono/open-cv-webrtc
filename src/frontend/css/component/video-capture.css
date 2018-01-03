@@ -1,6 +1,6 @@
 #video-capture {
+    @apply --media-border;
     background: url("https://placeimg.com/640/485/animals") no-repeat 0 0;
-    @apply --media-border
 }
 
 div > button {

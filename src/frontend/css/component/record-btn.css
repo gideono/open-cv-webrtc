@@ -1,3 +1,6 @@
+/*noinspection CssInvalidAtRule*/
+@custom-selector :--btn label div span;
+
 :root {
     --record-btn-square: {
         display:inline-block;
@@ -10,11 +13,10 @@
     }
 }
 
-#record-btn {
-    display: none;
-}
+#record-btn { display: none; }
 
-#record-btn + label div span {
+/*noinspection CssInvalidPseudoSelector*/
+#record-btn + :--btn {
     @apply --record-btn-square;
     background: red;
 
@@ -27,11 +29,12 @@
     animation-play-state: running;
 }
 
-#record-btn:checked + label div span {
+/*noinspection CssInvalidPseudoSelector*/
+#record-btn:checked + :--btn {
     animation-name: toggle-pause-play;
 }
 
-.frame {
+#record-btn + label div {
     border-radius: 50%;
     width: 60px;
     height: 60px;
