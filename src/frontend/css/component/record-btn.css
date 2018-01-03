@@ -9,7 +9,7 @@
         border-radius: 5%;
         height: 30px;
         width: 30px;
-
+        box-shadow: var(--subtle-shadow);
     }
 }
 
@@ -35,6 +35,7 @@
 }
 
 #record-btn + label div {
+    background-color: white;
     border-radius: 50%;
     width: 60px;
     height: 60px;
