@@ -52,5 +52,6 @@
         margin: 7px 0px 0px 8px;
         height: 35px;
         width: 35px;
+        transform: rotate(90deg);
     }
 }
