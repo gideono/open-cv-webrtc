@@ -28,6 +28,8 @@ function rules() {
                         plugins: (loader) => [
                             require('postcss-import')({ root: loader.resourcePath }),
                             require('postcss-cssnext')(),
+                            require('postcss-url')(),
+
                         ]
                     }
                 }

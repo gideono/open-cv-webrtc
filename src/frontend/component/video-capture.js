@@ -3,7 +3,6 @@ import {start, stop} from "../service/capture";
 import {drawImage} from "../utility/canvas-support";
 import {RecordBtn} from "./record-btn";
 
-
 export const VideoCapture = ({transport}) => {
     let target;
     const setTargetElement = (video) => (target = video);
@@ -11,7 +10,7 @@ export const VideoCapture = ({transport}) => {
     return (
         <Fragment>
             <div>
-                <video id="video-capture"  playsInline ref={(video) => setTargetElement(video)}></video>
+                <video id="video-capture" poster={require("../img/placeholder.svg")} playsInline ref={(video) => setTargetElement(video)}></video>
             </div>
             <div>
                 <RecordBtn on={() => start(target, send)} off={() => stop()}></RecordBtn>
