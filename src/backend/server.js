@@ -6,9 +6,13 @@ import { identify } from "./service/detection";
 
 const app = express()
     , server = http.Server(app)
-    , io =  new WebSocket.Server({ server });
+    , io =  new WebSocket.Server({ server })
+    , isProd = process.env.NODE_ENV === 'production'
+    , STATIC_PATH = isProd ? './static' : './dist/static';
 
-app.use(express.static(path.join(__dirname, './dist/static')));
+app.use(express.static(path.join(__dirname, STATIC_PATH)));
+
+app.get('*', (req, res) => res.sendFile(path.join(__dirname, STATIC_PATH)));
 
 io.on('connection', (session, req) => {
 
