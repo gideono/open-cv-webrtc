@@ -1,10 +1,10 @@
 const querySelector = (query) => document.querySelector(query);
 
-const createElement = (type, id) => document.createElement(type, id);
+const setAttribute = (element, name, value) => name ? (element.setAttribute(name, value), element) : element;
 
-const create = (id = 'root') => {
-    document.body.insertBefore(createElement('div', id), querySelector('script'));
-    return querySelector(`div[is=${id}]`)
-};
+export const create = (type, attribute, value) =>
+    setAttribute(document.createElement(type), attribute, value);
 
-export default () => create();
+export const container = (type = 'div', attribute = 'id', value = 'root') =>
+    document.body.insertBefore(create(type, attribute, value), querySelector('script'));
+
