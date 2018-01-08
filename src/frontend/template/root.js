@@ -6,7 +6,7 @@ import {WarningNotification} from "../component/warning-notification"
 
 export default () => {
     const io = SimpleSocket();
-    return [
+    return [ //TODO use fragments instead of array, https://reactjs.org/blog/2017/11/28/react-v16.2.0-fragment-support.html
         <WarningNotification key="notification"></WarningNotification>,
         <main key="main">
             <VideoCapture transport={io} ></VideoCapture>
