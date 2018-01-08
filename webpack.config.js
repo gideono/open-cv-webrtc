@@ -7,6 +7,8 @@ const path = require('path')
     , STATIC = path.join(SRC, './backend/dist/static')
     , OUTPUT = Object.assign({path: STATIC, filename: 'bundle.[hash].js'});
 
+let isProd = process.env.NODE_ENV === 'production';
+
 function resolve() {
     return { extensions: [ ".jsx", ".js" ]  }
 }
@@ -43,14 +45,28 @@ function rules() {
     ];
 }
 
+const devPlugin = [
+    new CleanWebpackPlugin([STATIC])
+  , new webpack.NamedModulesPlugin()
+  , new webpack.HotModuleReplacementPlugin()
+];
+
+const prodPlugin = [];
+
 function plugins() {
     return [
-        new CleanWebpackPlugin([STATIC]),
-        new HtmlWebpackPlugin(),
-        new webpack.NamedModulesPlugin(),
-        new webpack.HotModuleReplacementPlugin()
-    ];
-}
+        new HtmlWebpackPlugin(isProd && ({
+            template: path.join(SRC, './frontend/index.html'),
+            filename: 'index.html',
+            minify: {
+                collapseWhitespace: true,
+                collapseInlineTagWhitespace: true,
+                removeComments: true,
+                removeRedundantAttributes: true
+            }
+        })),
+    ].concat( isProd ? prodPlugin : devPlugin );
+};
 
 function devServer() {
     return {
@@ -65,7 +81,7 @@ function devServer() {
 }
 
 module.exports = {
-    devtool: 'inline-source-map'
+    devtool: isProd ? 'source-map' : 'cheap-module-eval-source-map'
     , entry: ENTRY
     , output: OUTPUT
     , resolve: resolve()
