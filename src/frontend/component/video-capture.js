@@ -11,7 +11,7 @@ export const VideoCapture = ({transport}) => {
     return (
         [
             <div key="media">
-                <video id="video-capture" poster="https://placeimg.com/640/485/people" playsInline ref={(video) => setTargetElement(video)}></video>
+                <video id="video-capture"  playsInline ref={(video) => setTargetElement(video)}></video>
             </div>,
             <div key="media-control">
                 <RecordBtn on={() => start(target, send)} off={() => stop()}></RecordBtn>
