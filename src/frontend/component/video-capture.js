@@ -1,4 +1,5 @@
 import React, {Fragment} from 'react'
+import placeholder from "../img/placeholder.svg"
 import {start, stop} from "../service/capture";
 import {drawImage} from "../utility/canvas-support";
 import {RecordBtn} from "./record-btn";
@@ -10,12 +11,11 @@ export const VideoCapture = ({transport}) => {
     return (
         <Fragment>
             <div>
-                <video id="video-capture" poster={require("../img/placeholder.svg")} playsInline ref={(video) => setTargetElement(video)}></video>
+                <video id="video-capture" poster={placeholder} playsInline ref={(video) => setTargetElement(video)}></video>
             </div>
             <div>
                 <RecordBtn on={() => start(target, send)} off={() => stop()}></RecordBtn>
             </div>
         </Fragment>
     );
-
 };
