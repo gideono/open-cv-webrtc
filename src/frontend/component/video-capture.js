@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import {start, stop} from "../service/capture";
 import {drawImage} from "../utility/canvas-support";
 import {RecordBtn} from "./record-btn";
@@ -9,14 +9,14 @@ export const VideoCapture = ({transport}) => {
     const setTargetElement = (video) => (target = video);
     const send = (_) => drawImage(target)((data) => transport.send(data));
     return (
-        [
-            <div key="media">
+        <Fragment>
+            <div>
                 <video id="video-capture"  playsInline ref={(video) => setTargetElement(video)}></video>
-            </div>,
-            <div key="media-control">
+            </div>
+            <div>
                 <RecordBtn on={() => start(target, send)} off={() => stop()}></RecordBtn>
             </div>
-        ]
+        </Fragment>
     );
 
 };
