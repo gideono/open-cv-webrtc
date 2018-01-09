@@ -10,7 +10,6 @@ sudo sudo apt-get -y upgrade
 sudo apt install unzip
 sudo apt-get install --assume-yes checkinstall
 
-
 #Installing node js
 curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
 sudo apt-get install -y nodejs
@@ -23,3 +22,4 @@ git clone https://github.com/gideono/${project}
 cd ${project}
 
 npm i
+npm start
