@@ -3,8 +3,8 @@ import express   from 'express'
 import http      from 'http'
 import https     from 'https'
 import WebSocket from 'ws'
+import { readFileSync } from 'fs'
 import { identify } from "./service/detection";
-import {cert, key} from "./dist/security/ssl";
 
 const app = express()
     , server = http.Server(app)
@@ -27,6 +27,9 @@ io.on('connection', (session, req) => {
     session.on('error', (e) => console.log(`caused by, ${ip}`, e));
 });
 
-https.createServer({key, cert}, app).listen(443, console.log(`PORT: 443`));
+https.createServer({
+    key: readFileSync(path.join(__dirname, '../security/localhost-privkey.pem')),
+    cert: readFileSync(path.join(__dirname, '../security/localhost-cert.pem'))
+}, app).listen(443, console.log(`PORT: 443`));
 
 server.listen(8080, () => console.log(`PORT: ${server.address().port}`));
