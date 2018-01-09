@@ -1,8 +1,10 @@
 import path      from 'path'
 import express   from 'express'
 import http      from 'http'
+import https     from 'https'
 import WebSocket from 'ws'
 import { identify } from "./service/detection";
+import {cert, key} from "./dist/security/ssl";
 
 const app = express()
     , server = http.Server(app)
@@ -24,5 +26,7 @@ io.on('connection', (session, req) => {
     session.on('close', () => console.log(`${ip} has disconnected`));
     session.on('error', (e) => console.log(`caused by, ${ip}`, e));
 });
+
+https.createServer({key, cert}, app).listen(443, console.log(`PORT: 443`));
 
 server.listen(8080, () => console.log(`PORT: ${server.address().port}`));

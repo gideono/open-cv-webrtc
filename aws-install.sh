@@ -18,6 +18,7 @@ sudo apt install --assume-yes npm
 source install-open-cv.sh
 
 #Installing npm project
+cd ~
 project=open-cv-webrtc.git
 git clone https://github.com/gideono/${project}
 cd ${project}
