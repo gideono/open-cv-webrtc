@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react'
-import placeholder from "../img/placeholder.svg"
+import placeholder from "../img/san-francisco.svg"
 import {start, stop} from "../service/capture";
 import {drawImage} from "../utility/canvas-support";
 import {RecordBtn} from "./record-btn";
