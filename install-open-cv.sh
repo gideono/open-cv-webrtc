@@ -33,7 +33,7 @@ echo "**************************************************************************
 echo "<--------------For JAVA-------------------->"
 sudo apt-get install --assume-yes ant default-jdk
 echo "<-------********------For Python------********-------->"
-#sudo apt-get install python-dev python-tk python-numpy python3-dev python3-tk python3-numpy python-matplotlib
+sudo apt-get install python-dev python-tk python-numpy python3-dev python3-tk python3-numpy python-matplotlib
 sudo apt-get install --assume-yes python-opencv
 echo "%_%_%_%_%_%_%_%_%_%_%_%_%_%_%_%_%_%_%_%_%_%"
 echo "Downloading OpenCV" ${version}
