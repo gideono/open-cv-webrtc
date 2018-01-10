@@ -1,4 +1,3 @@
-// navigator.mediaDevices.getSupportedConstraints()
-import {WIDTH, HEIGHT} from "./constants";
+import { WIDTH, HEIGHT } from "./constants";
 
-export default { video: { mandatory: { minWidth: WIDTH, minHeight: HEIGHT } } };
+export default { video: { width: {max: WIDTH}, height: {max: HEIGHT} } };
