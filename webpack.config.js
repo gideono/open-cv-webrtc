@@ -74,19 +74,22 @@ const prodPlugin = [
   }),
 ];
 
-function plugins() {
+function htmlPlugin() {
     return [
-        new HtmlWebpackPlugin(isProd && ({
+        new HtmlWebpackPlugin(Object.assign({
             template: path.join(SRC, './frontend/index.html'),
-            filename: 'index.html',
+            filename: 'index.html'}), isProd && ({
             minify: {
                 collapseWhitespace: true,
                 collapseInlineTagWhitespace: true,
                 removeComments: true,
                 removeRedundantAttributes: true
-            }
-        })),
-    ].concat( isProd ? prodPlugin : devPlugin );
+            }})),
+    ]
+}
+
+function plugins() {
+    return htmlPlugin().concat( isProd ? prodPlugin : devPlugin );
 };
 
 function devServer() {
