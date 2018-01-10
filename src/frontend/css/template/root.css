@@ -1,22 +1,4 @@
-:root {
-    --media-border: {
-        border: 10px solid var(--light-grey);
-        border-radius: 2px;
-        box-shadow: var(--subtle-shadow);
-    }
-}
-
-body {
-    font-family: "San Francisco", Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    background-color: var(--navy-blue);
-}
-
-body { margin: 0 auto; }
-
-h1, h1, h3, h4, h5, h6 { margin: 0; }
-
-body div main {
+:--main {
     margin: 0 auto;
     max-width: 1300px;
     display: grid;
@@ -24,20 +6,11 @@ body div main {
     grid-column-gap: 20px;
 }
 
-main > div:nth-child(2) {
+:--main-item { margin-top: 4em; }
+
+
+:--main-item:nth-child(2) {
     grid-row: 3;
     grid-column:  1 / span 2;
     justify-self: center;
 }
-
-main > div { margin-top: 4em; }
-
-img, iframe, object, embed, video {
-    width: 100%;
-    max-width: 100%;
-    height: 100%;
-}
-
-
-input, button, submit { border:none; }
-

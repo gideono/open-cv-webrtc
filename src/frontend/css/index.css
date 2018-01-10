@@ -1,8 +1,9 @@
 @import '../../../node_modules/sanitize.css/sanitize.css';
+@import "./animation.css";
 @import "./break-points.css";
 @import "./color.css";
-@import "./animation.css";
 @import "./effects.css";
+@import "./general.css";
 
 @import "./template/root.css";
 
