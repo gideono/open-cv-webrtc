@@ -4,10 +4,12 @@ import http      from 'http'
 import https     from 'https'
 import WebSocket from 'ws'
 import { readFileSync } from 'fs'
+import { key, cert } from "./security/ssl";
 import { identify } from "./service/detection";
 
 const app = express()
     , server = http.Server(app)
+    , sslServer = https.createServer({key, cert}, app)
     , io =  new WebSocket.Server({ server })
     , isProd = process.env.NODE_ENV === 'production'
     , STATIC_PATH = isProd ? './static' : './dist/static';
@@ -27,9 +29,6 @@ io.on('connection', (session, req) => {
     session.on('error', (e) => console.log(`caused by, ${ip}`, e));
 });
 
-https.createServer({
-    key: readFileSync(path.join(__dirname, '../security/localhost-privkey.pem')),
-    cert: readFileSync(path.join(__dirname, '../security/localhost-cert.pem'))
-}, app).listen(443, console.log(`PORT: 443`));
+sslServer.listen(443, console.log(`PORT: 443`));
 
 server.listen(8080, () => console.log(`PORT: ${server.address().port}`));
