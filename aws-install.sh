@@ -19,8 +19,8 @@ source install-open-cv.sh
 
 #Installing npm project
 cd ~
-project=open-cv-webrtc.git
-git clone https://github.com/gideono/${project}
+project=open-cv-webrtc
+git clone https://github.com/gideono/${project}.git
 cd ${project}
 
 npm i
