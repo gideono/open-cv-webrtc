@@ -24,4 +24,4 @@ git clone https://github.com/gideono/${project}
 cd ${project}
 
 npm i
-npm start
+sudo npm start
