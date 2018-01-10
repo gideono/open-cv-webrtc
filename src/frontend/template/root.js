@@ -10,8 +10,8 @@ export default () => {
         <Fragment>
             <WarningNotification></WarningNotification>
             <main>
-                <VideoCapture transport={io} ></VideoCapture>
                 <PreviewCapture></PreviewCapture>
+                <VideoCapture transport={io} ></VideoCapture>
             </main>
             <nav></nav>
         </Fragment>
