@@ -1,4 +1,4 @@
-const defaultURL = `wss://localhost:443`;
+const defaultURL = `wss://localhost`;
 
 export class Socket {
     constructor(build) {
