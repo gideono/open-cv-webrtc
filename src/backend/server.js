@@ -10,9 +10,9 @@ import { identify } from "./service/detection";
 const app = express()
     , server = http.Server(app)
     , sslServer = https.createServer({key, cert}, app)
-    , io =  new WebSocket.Server({ server })
+    , io =  new WebSocket.Server({ server: sslServer })
     , isProd = process.env.NODE_ENV === 'production'
-    , STATIC_PATH = isProd ? './static' : './dist/static';
+    , STATIC_PATH = './static';
 
 app.use(express.static(path.join(__dirname, STATIC_PATH)));
 
@@ -29,6 +29,6 @@ io.on('connection', (session, req) => {
     session.on('error', (e) => console.log(`caused by, ${ip}`, e));
 });
 
-sslServer.listen(443, console.log(`PORT: 443`));
+sslServer.listen(443, () => console.log(`PORT: 443`));
 
-server.listen(process.env.NODE_ENV === 'production' ? 80 : 8080, () => console.log(`PORT: ${server.address().port}`));
+server.listen(isProd === 'production' ? 80 : 8080, () => console.log(`PORT: ${server.address().port}`));
