@@ -31,4 +31,4 @@ io.on('connection', (session, req) => {
 
 sslServer.listen(443, console.log(`PORT: 443`));
 
-server.listen(8080, () => console.log(`PORT: ${server.address().port}`));
+server.listen(process.env.NODE_ENV === 'production' ? 80 : 8080, () => console.log(`PORT: ${server.address().port}`));

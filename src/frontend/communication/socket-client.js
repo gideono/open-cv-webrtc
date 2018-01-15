@@ -1,4 +1,4 @@
-const defaultURL = `ws://localhost:8080/`;
+const defaultURL = `ws://localhost:80/`;
 
 export class Socket {
     constructor(build) {
