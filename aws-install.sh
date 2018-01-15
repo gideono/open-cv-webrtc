@@ -17,6 +17,14 @@ sudo apt install --assume-yes npm
 #Insall open-cv
 source install-open-cv.sh
 
+#ssl setup
+sudo apt-get install -y software-properties-common
+sudo add-apt-repository ppa:certbot/certbot
+sudo apt-get update
+sudo apt-get install certbot
+
+sudo certbot certonly --standalone -d facedetection.ml -d www.facedetection.ml
+
 #Installing npm project
 cd ~
 project=open-cv-webrtc
