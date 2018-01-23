@@ -1,4 +1,5 @@
-const defaultURL = `wss://localhost`;
+// const defaultURL = `wss://localhost`;
+const defaultURL = `wss://facedetection.ml`;
 
 export class Socket {
     constructor(build) {
