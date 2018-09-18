@@ -1,4 +1,4 @@
-// import   path           from "path"
+
 // import   express        from "express"
 // import   http           from "http"
 // import   https          from "https"
@@ -31,6 +31,6 @@
 // sslServer.listen(443, () => console.log(`PORT: 443`));
 //
 // server.listen(isProd ? 80 : 8080, () => console.log(`PORT: ${server.address().port}`));
+import { start as http } from "./server/http"
 
-import { start as httpStart } from "./server/http"
-httpStart("path")
+http()
