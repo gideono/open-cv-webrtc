@@ -7,8 +7,10 @@
     "start": "npm run build && NODE_ENV=production node ./src/backend/dist/server.js ",
     "local": "npm run build && NODE_ENV=local node ./src/backend/dist/server.js ",
     "build": "rm -rf ./src/backend/dist && babel ./src/backend --out-dir ./src/backend/dist --ignore=test,resources --copy-files --presets es2015,stage-3 && NODE_ENV=production npm run webpack",
+
     "dev": "nodemon ./src/backend/server.js --exec babel-node --presets=es2015,stage-3",
     "wc": "nodemon ./src/backend/web-camera.js --exec babel-node --presets=es2015,stage-3",
+    
     "test": " mocha --compilers js:babel-register --recursive ./src/**/*.spec.js",
     "webpack": "webpack",
     "w": "webpack-dev-server"

@@ -1,18 +1,18 @@
-import path      from 'path'
-import express   from 'express'
-import http      from 'http'
-import https     from 'https'
-import WebSocket from 'ws'
-import { readFileSync } from 'fs'
-import { key, cert } from "./security/ssl";
-import { identify } from "./service/detection";
+import   path           from "path"
+import   express        from "express"
+import   http           from "http"
+import   https          from "https"
+import   WebSocket      from "ws"
+import { readFileSync } from "fs"
+import { key, cert    } from "./security/ssl";
+import { identify     } from "./service/detection";
 
-const app = express()
-    , server = http.Server(app)
-    , sslServer = https.createServer({key, cert}, app)
-    , io =  new WebSocket.Server({ server: sslServer })
-    , isProd = process.env.NODE_ENV === 'production'
-    , STATIC_PATH = './dist/static';
+const app         = express();
+const server      = http.Server(app);
+const sslServer   = https.createServer({key, cert}, app);
+const io          = new WebSocket.Server({ server: sslServer });
+const isProd      = process.env.NODE_ENV === 'production';
+const STATIC_PATH = './dist/static';
 
 app.use(express.static(path.join(__dirname, STATIC_PATH)));
 
