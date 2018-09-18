@@ -1,7 +1,7 @@
-import device from '../utility/media-device'
-import constraint from '../utility/rtc-constraint'
-import {INTERVALL} from "../utility/constants";
-import {setup as createRecorder} from "../utility/media-recorder";
+import   device                     from '../utility/media-device'
+import   constraint                 from '../utility/rtc-constraint'
+import { INTERVALL }                from '../utility/constants';
+import { setup  as createRecorder } from '../utility/media-recorder';
 
 let mediaRecorder
   , videoTrack;

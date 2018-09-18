@@ -1,4 +1,4 @@
-export const asyncBlobToBuffer = (blob) => new Promise((resolve, reject) => {
+ export const asyncBlobToBuffer = (blob) => new Promise((resolve, reject) => {
     const onLoad = (reader) => {
         reader.onload = () => resolve(reader.result);
         return reader

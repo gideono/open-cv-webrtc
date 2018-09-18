@@ -1,5 +1,6 @@
-// const defaultURL = `wss://localhost`;
-const defaultURL = `wss://facedetection.ml`;
+//TODO move to constants resource or webpack
+const defaultURL = `wss://localhost`;
+// const defaultURL = `wss://facedetection.ml`;
 
 export class Socket {
     constructor(build) {
@@ -34,6 +35,8 @@ export class Socket {
     }
 }
 
+
+//TODO create secure Simple IOClient
 export const SimpleSocket = (message = onmessage) => {
     return new Socket.IO()
         .setOnOpen(onopen)

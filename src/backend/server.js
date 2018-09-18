@@ -12,7 +12,7 @@ const app = express()
     , sslServer = https.createServer({key, cert}, app)
     , io =  new WebSocket.Server({ server: sslServer })
     , isProd = process.env.NODE_ENV === 'production'
-    , STATIC_PATH = './static';
+    , STATIC_PATH = './dist/static';
 
 app.use(express.static(path.join(__dirname, STATIC_PATH)));
 
