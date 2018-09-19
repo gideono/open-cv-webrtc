@@ -1,14 +1,10 @@
-//TODO move to constants resource or webpack
-const defaultURL = `ws://localhost:3000`;
-// const defaultURL = `wss://facedetection.ml`;
-
 export class Socket {
     constructor(build) {
         this.socket = build
     }
     static get IO() {
         class IO {
-            constructor(url = defaultURL) {
+            constructor(url = WS_URL) {
                 this.socket = new WebSocket(url);
             }
             setOnOpen(open) {
@@ -46,7 +42,7 @@ export const SimpleSocket = (message = onmessage) => {
         .build();
 };
 
-const onopen = () => console.log(`established connection to: ${defaultURL}`);
+const onopen = () => console.log(`established connection to: ${WS_URL}`);
 const onmessage = ({data}) => handleData(data);
 const onclose = (e) => console.log(e);
 const onerror = (err) => console.log(err);

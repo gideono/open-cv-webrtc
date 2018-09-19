@@ -1,14 +1,16 @@
 const path                = require('path');
 const webpack             = require('webpack');
 const CleanWebpackPlugin  = require('clean-webpack-plugin');
-const HtmlWebpackPlugin   = require('html-webpack-plugin')
+const HtmlWebpackPlugin   = require('html-webpack-plugin');
+const DEFAULT_HTTP_PORT   = require('./src/backend/constants').DEFAULT_HTTP_PORT;
 
 const SRC                 = path.join(__dirname, './src');
 const ENTRY               = path.join(SRC, './frontend/index.js');
 const STATIC              = path.join(SRC, './backend/dist/static');
 const OUTPUT              = Object.assign({path: STATIC, filename: 'bundle.[hash].js'});
 
-let isProd = process.env.NODE_ENV === 'production';
+let isProd                = process.env.NODE_ENV === 'production';
+let WS_URL                = isProd ? `wss://facedetection.ml` : `ws://localhost:${DEFAULT_HTTP_PORT}` ;
 
 function resolve() {
     return { extensions: [ ".jsx", ".js" ]  }
@@ -72,10 +74,10 @@ const prodPlugin = [
       output: {
           comments: false
       }
-  }),
+    })
 ];
 
-function htmlPlugin() {
+function defaultPlugins() {
     return [
         new HtmlWebpackPlugin(Object.assign({
             template: path.join(SRC, './frontend/index.html'),
@@ -85,13 +87,16 @@ function htmlPlugin() {
                 collapseInlineTagWhitespace: true,
                 removeComments: true,
                 removeRedundantAttributes: true
-            }})),
+            }}))
+      , new webpack.DefinePlugin({
+            WS_URL: JSON.stringify(WS_URL)
+        })
     ]
 }
 
 function plugins() {
-    return htmlPlugin().concat( isProd ? prodPlugin : devPlugin );
-};
+    return defaultPlugins().concat( isProd ? prodPlugin : devPlugin );
+}
 
 function devServer() {
     return {
