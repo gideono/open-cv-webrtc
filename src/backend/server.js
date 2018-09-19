@@ -31,6 +31,8 @@
 // sslServer.listen(443, () => console.log(`PORT: 443`));
 //
 // server.listen(isProd ? 80 : 8080, () => console.log(`PORT: ${server.address().port}`));
-import { start as http } from "./server/http"
+import WebSocket from "ws"
+import http      from "./server/http"
 
-http()
+http.withWebSocket(WebSocket)
+  .start();

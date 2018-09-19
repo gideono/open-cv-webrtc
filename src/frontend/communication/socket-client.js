@@ -1,5 +1,5 @@
 //TODO move to constants resource or webpack
-const defaultURL = `wss://localhost`;
+const defaultURL = `ws://localhost:3000`;
 // const defaultURL = `wss://facedetection.ml`;
 
 export class Socket {

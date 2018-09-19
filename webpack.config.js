@@ -1,11 +1,12 @@
-const path = require('path')
-    , webpack = require('webpack')
-    , CleanWebpackPlugin = require('clean-webpack-plugin')
-    , HtmlWebpackPlugin = require('html-webpack-plugin')
-    , SRC = path.join(__dirname, './src')
-    , ENTRY = path.join(SRC, './frontend/index.js')
-    , STATIC = path.join(SRC, './backend/dist/static')
-    , OUTPUT = Object.assign({path: STATIC, filename: 'bundle.[hash].js'});
+const path                = require('path');
+const webpack             = require('webpack');
+const CleanWebpackPlugin  = require('clean-webpack-plugin');
+const HtmlWebpackPlugin   = require('html-webpack-plugin')
+
+const SRC                 = path.join(__dirname, './src');
+const ENTRY               = path.join(SRC, './frontend/index.js');
+const STATIC              = path.join(SRC, './backend/dist/static');
+const OUTPUT              = Object.assign({path: STATIC, filename: 'bundle.[hash].js'});
 
 let isProd = process.env.NODE_ENV === 'production';
 
