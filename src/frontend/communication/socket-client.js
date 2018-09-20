@@ -4,7 +4,8 @@ export class Socket {
     }
     static get IO() {
         class IO {
-            constructor(url = WS_URL) {
+            // constructor(url = WS_URL) {
+            constructor(url = "ws://localhost:3000") {
                 this.socket = new WebSocket(url);
             }
             setOnOpen(open) {
@@ -42,10 +43,10 @@ export const SimpleSocket = (message = onmessage) => {
         .build();
 };
 
-const onopen = () => console.log(`established connection to: ${WS_URL}`);
+const onopen    = (      ) => console.log(`established connection to: ${WS_URL}`);
 const onmessage = ({data}) => handleData(data);
-const onclose = (e) => console.log(e);
-const onerror = (err) => console.log(err);
+const onclose   = (e     ) => console.log(e);
+const onerror   = (err   ) => console.log(err);
 
 const handleData = (data) => {
     if(data instanceof Blob){
