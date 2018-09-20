@@ -4,8 +4,7 @@ export class Socket {
     }
     static get IO() {
         class IO {
-            // constructor(url = WS_URL) {
-            constructor(url = "ws://localhost:3000") {
+            constructor(url = WS_URL) {
                 this.socket = new WebSocket(url);
             }
             setOnOpen(open) {
@@ -31,7 +30,6 @@ export class Socket {
         return IO;
     }
 }
-
 
 //TODO create secure Simple IOClient
 export const SimpleSocket = (message = onmessage) => {
