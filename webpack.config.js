@@ -89,7 +89,8 @@ function defaultPlugins() {
                 removeRedundantAttributes: true
             }}))
       , new webpack.DefinePlugin({
-            WS_URL: JSON.stringify(WS_URL)
+            WS_URL: JSON.stringify(WS_URL),
+            IS_PRODUCTION: isProd
         })
     ]
 }
@@ -100,7 +101,7 @@ function plugins() {
 
 function devServer() {
     return {
-        port: 3000
+        port: DEFAULT_HTTP_PORT
         , historyApiFallback: true
         , hot: true
         , contentBase: STATIC
