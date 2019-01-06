@@ -96,6 +96,7 @@ function devServer() {
 
 module.exports = {
     devtool: isProd ? 'source-map' : 'cheap-module-eval-source-map'
+    , mode: isProd ? 'production' : 'development'
     , entry: ENTRY
     , output: OUTPUT
     , resolve: resolve()

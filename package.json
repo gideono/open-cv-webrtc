@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run build && NODE_ENV=production node ./src/backend/dist/main.js ",
-    "local-backend": "npm run webpack && nodemon ./src/backend/main.js --exec babel-node --presets=es2015,stage-3",
+    "local-backend": "npm run webpack && nodemon ./src/backend/main.js --exec babel-node --presets=@babel/preset-env",
     "local-frontend": "webpack-dev-server",
     "build": "rm -rf ./src/backend/dist && babel ./src/backend --out-dir ./src/backend/dist --ignore=test,resources --copy-files --presets @babel/preset-env && NODE_ENV=production npm run webpack",
     "wc": "nodemon ./src/backend/web-camera.js --exec babel-node --presets=es2015,stage-3",
@@ -41,6 +41,7 @@
   "devDependencies": {
     "@babel/cli": "7.2.3",
     "@babel/core": "7.2.2",
+    "@babel/node": "7.2.2",
     "@babel/plugin-proposal-decorators": "^7.2.3",
     "@babel/preset-env": "7.2.3",
     "@babel/preset-react": "7.0.0",
