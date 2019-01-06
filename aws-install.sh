@@ -14,6 +14,7 @@ sudo apt-get install --assume-yes checkinstall
 curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
 sudo apt-get install -y nodejs
 sudo apt install --assume-yes npm
+
 #Insall open-cv
 source install-open-cv.sh
 
